@@ -1,0 +1,45 @@
+cff-version: 1.2.0
+message: "If you use AcoustiTrace, please cite the paper below."
+title: "AcoustiTrace"
+type: software
+version: 0.1.0
+date-released: 2026-08-26
+license: Apache-2.0
+repository-code: "https://github.com/Leader-sheng/AcoustiTrace"
+url: "https://leader-sheng.github.io/AcoustiTrace/"
+authors:
+  - family-names: Li
+    given-names: Shiyang
+  - family-names: Cao
+    given-names: Yuewen
+  - family-names: Liu
+    given-names: Yihao
+  - family-names: Pu
+    given-names: Yuandong
+  - family-names: Zhang
+    given-names: Baochang
+  - family-names: Li
+    given-names: Xiaofei
+  - family-names: Zou
+    given-names: Changqing
+preferred-citation:
+  type: article
+  title: "AcoustiTrace: When Plausible Sound Violates Physics"
+  authors:
+    - family-names: Li
+      given-names: Shiyang
+    - family-names: Cao
+      given-names: Yuewen
+    - family-names: Liu
+      given-names: Yihao
+    - family-names: Pu
+      given-names: Yuandong
+    - family-names: Zhang
+      given-names: Baochang
+    - family-names: Li
+      given-names: Xiaofei
+    - family-names: Zou
+      given-names: Changqing
+  year: 2026
+  doi: "10.48550/arXiv.2608.02035"
+  url: "https://arxiv.org/abs/2608.02035"

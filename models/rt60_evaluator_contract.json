@@ -1,0 +1,43 @@
+{
+  "method": "sabine_guided_physics_head",
+  "backbone": "Qwen3-VL-8B-Instruct",
+  "input_order": [
+    "RGB",
+    "Depth",
+    "Acoustic Alpha Map at 500 Hz"
+  ],
+  "scene_representation": {
+    "source": "last-layer hidden states",
+    "pooling": "attention-mask-aware mean",
+    "dimension": 4096
+  },
+  "head": {
+    "normalization": "LayerNorm",
+    "dropout": 0.1,
+    "branches": [
+      "geometry",
+      "absorption_500hz",
+      "log_rt60_residual",
+      "six_bin_classification",
+      "extreme_long"
+    ],
+    "rt60_seconds_range": [0.05, 5.0],
+    "class_boundaries_seconds": [0.3, 0.6, 1.0, 1.5, 2.0],
+    "formula": "clip(exp(log(clip(0.161 * softplus(V) / softplus(A_500), 0.05, 5.0)) + residual), 0.05, 5.0)"
+  },
+  "adapter": {
+    "type": "LoRA",
+    "rank": 16,
+    "alpha": 32,
+    "dropout": 0.0,
+    "target_modules": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj",
+      "gate_proj",
+      "up_proj",
+      "down_proj"
+    ]
+  }
+}

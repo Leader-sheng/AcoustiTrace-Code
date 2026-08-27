@@ -1,0 +1,17 @@
+model:
+  model_name_or_path: Qwen/Qwen3-VL-8B-Instruct
+  hidden_size: 4096
+  freeze_vlm: true
+  init_lora_path: null
+  lora_r: 16
+  lora_alpha: 32
+  lora_dropout: 0.0
+  gradient_checkpointing: false
+  torch_dtype: bfloat16
+  attn_implementation: sdpa
+
+head:
+  eps: 0.0001
+  rt60_min: 0.05
+  rt60_max: 5.0
+  dropout: 0.1

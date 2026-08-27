@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "repo_root": "..",
+  "backends": {
+    "receiver_observer": {
+      "enabled": true,
+      "mock": true,
+      "command": [
+        "{python}",
+        "{repo_root}/src/acoustitrace/mock_backend.py",
+        "--input", "{input_manifest}",
+        "--output", "{output_evidence}"
+      ]
+    },
+    "source_mechanics": {
+      "enabled": true,
+      "mock": true,
+      "command": [
+        "{python}",
+        "{repo_root}/src/acoustitrace/mock_backend.py",
+        "--input", "{input_manifest}",
+        "--output", "{output_evidence}"
+      ]
+    },
+    "causality": {
+      "enabled": true,
+      "mock": true,
+      "command": [
+        "{python}",
+        "{repo_root}/src/acoustitrace/mock_backend.py",
+        "--input", "{input_manifest}",
+        "--output", "{output_evidence}"
+      ]
+    },
+    "rt60": {
+      "enabled": true,
+      "mock": true,
+      "command": [
+        "{python}",
+        "{repo_root}/src/acoustitrace/mock_backend.py",
+        "--input", "{input_manifest}",
+        "--output", "{output_evidence}"
+      ]
+    },
+    "log_attack_time": {
+      "enabled": true,
+      "mock": true,
+      "command": [
+        "{python}",
+        "{repo_root}/src/acoustitrace/mock_backend.py",
+        "--input", "{input_manifest}",
+        "--output", "{output_evidence}"
+      ]
+    }
+  }
+}

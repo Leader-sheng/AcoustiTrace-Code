@@ -1,0 +1,55 @@
+default:
+  - "sound source"
+  - "object"
+  - "person"
+
+keyboard_switch_click:
+  - "keyboard"
+  - "hand"
+  - "finger"
+  - "key"
+  - "switch"
+
+woodworking_metalworking:
+  - "hammer"
+  - "hand"
+  - "wood"
+  - "metal"
+  - "tool"
+  - "chisel"
+  - "workpiece"
+  - "anvil"
+
+ball_bounce_sports:
+  - "ball"
+  - "basketball"
+  - "tennis ball"
+  - "ping pong ball"
+  - "hand"
+  - "floor"
+
+door_mechanical_events:
+  - "door"
+  - "drawer"
+  - "handle"
+  - "switch"
+  - "hand"
+
+object_drop_collision:
+  - "object"
+  - "bottle"
+  - "glass"
+  - "phone"
+  - "plate"
+  - "cup"
+  - "floor"
+  - "table"
+
+receiver_observer_vehicle:
+  - "car"
+  - "motorcycle"
+  - "airplane"
+  - "drone"
+  - "vehicle"
+  - "siren"
+  - "emergency vehicle"

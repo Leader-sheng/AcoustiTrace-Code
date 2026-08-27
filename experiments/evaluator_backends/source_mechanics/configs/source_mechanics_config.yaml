@@ -1,0 +1,49 @@
+data:
+  review_package_root: data/source_mechanics
+  video_extensions: [.mp4, .mov, .mkv, .webm]
+
+output:
+  root: outputs/source_mechanics
+
+ov_avel:
+  repo_root: third_party/OV-AVEL
+  classes_file: experiments/evaluator_backends/source_mechanics/configs/ov_avel_classes.txt
+  output_dir: outputs/source_mechanics/ov_avel
+  checkpoint_path: checkpoints/ov_avel/imagebind_huge.pth
+  window_sec: 1.0
+  hop_sec: 0.5
+  joint_similarity_threshold: 0.02
+  av_similarity_threshold: 0.0
+
+flexsed:
+  repo_root: third_party/FlexSED
+  output_dir: outputs/source_mechanics/flexsed
+  checkpoint_path: checkpoints/flexsed/flexsed_as.pt
+
+event_matching:
+  max_av_offset_sec: 0.35
+  min_event_gap_sec: 0.12
+  max_events_per_video: 20
+
+audio:
+  sample_rate: 22050
+  event_pre_sec: 0.05
+  event_post_sec: 0.70
+  rms_window_sec: 0.20
+  decay_fit_start_after_peak_sec: 0.02
+  decay_fit_end_after_peak_sec: 0.50
+  truncation_start_after_peak_sec: 0.08
+  spectral_start_after_onset_sec: 0.02
+  spectral_end_after_onset_sec: 0.15
+  low_band_hz: [200, 1000]
+  high_band_hz: [3000, 8000]
+
+visual:
+  fps_sample: 8
+  motion_window_before_sec: 0.25
+  motion_window_after_sec: 0.10
+  motion_method: qwen_motion_only_with_frame_diff_fallback
+
+material:
+  optional_material_label_csv: ""
+  allow_unknown_material: true

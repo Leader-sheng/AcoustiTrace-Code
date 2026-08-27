@@ -1,0 +1,80 @@
+keyboard_typing:
+  visual_labels:
+    - keyboard typing
+    - pressing key
+    - hand pressing keyboard
+    - key press
+  audio_labels:
+    - keyboard typing
+    - key click
+    - typing
+    - click
+
+woodworking_metalworking:
+  visual_labels:
+    - hammer hit
+    - hammering
+    - chisel hit
+    - wood impact
+    - metal impact
+    - forging
+  audio_labels:
+    - hammer
+    - impact
+    - knock
+    - hit
+    - metal hit
+    - wood hit
+
+ball_bounce_sports:
+  visual_labels:
+    - ball bounce
+    - dribbling
+    - ball hitting floor
+    - ball contact
+  audio_labels:
+    - ball bounce
+    - bounce
+    - impact
+    - hit
+
+door_mechanical_events:
+  visual_labels:
+    - door closing
+    - drawer closing
+    - switch click
+    - latch
+    - handle
+  audio_labels:
+    - door slam
+    - door close
+    - click
+    - latch click
+    - switch click
+
+object_drop_collision:
+  visual_labels:
+    - object drop
+    - object collision
+    - glass break
+    - bottle drop
+    - plate drop
+  audio_labels:
+    - object impact
+    - collision
+    - glass break
+    - drop
+    - crash
+
+human_percussive_events:
+  visual_labels:
+    - clap
+    - finger snap
+    - footstep
+    - stomp
+  audio_labels:
+    - clap
+    - snap
+    - footstep
+    - stomp
+

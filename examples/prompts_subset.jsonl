@@ -1,0 +1,2 @@
+{"prompt_id":"demo_t2av_001","task":"t2av","prompt_text":"A fixed camera observes a bell moving away while ringing.","evaluator_membership":["range_attenuation"],"conditioning_asset_id":"","conditioning_asset_path":"","split":"smoke"}
+{"prompt_id":"demo_i2av_001","task":"i2av","prompt_text":"Animate the pictured rigid object striking the visible surface once.","evaluator_membership":["log_attack_time"],"conditioning_asset_id":"demo_image_001","conditioning_asset_path":"assets/demo_image_001.png","split":"smoke"}

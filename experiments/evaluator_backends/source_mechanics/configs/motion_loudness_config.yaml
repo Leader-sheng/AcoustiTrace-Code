@@ -1,0 +1,11 @@
+clustering:
+  gap_weight: 1.0
+  audio_peak_fallback: true
+
+qwen3:
+  checkpoint_path: Qwen/Qwen3-VL-8B-Instruct
+  gpu_memory_utilization: 0.75
+  max_model_len: 32768
+
+frame_difference:
+  sample_fps: 8.0

@@ -1,0 +1,3 @@
+# Kept for compatibility with earlier setup notes. The public evaluator uses
+# one consolidated requirements file at the repository root.
+-r ../../requirements-eval.txt

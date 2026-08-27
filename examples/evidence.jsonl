@@ -1,0 +1,9 @@
+{"sample_id":"motion_001","model":"DemoModel","task":"t2av","evaluator":"motion_loudness","evidence":{"level_pairs_db":[[-12.0,-18.0],[-9.0,-11.0]]}}
+{"sample_id":"impact_001","model":"DemoModel","task":"i2av","evaluator":"log_attack_time","evidence":{"generated_attack_seconds":0.018,"reference_attack_seconds":0.015}}
+{"sample_id":"decay_001","model":"DemoModel","task":"t2av","evaluator":"impact_decay","evidence":{"fit_r2":0.91,"tail_residual_mae_db":1.2,"peak_to_floor_db":24.0}}
+{"sample_id":"room_001","model":"DemoModel","task":"t2av","evaluator":"rt60_consistency","evidence":{"audio_rt60":0.8,"visual_rt60":1.0}}
+{"sample_id":"contact_001","model":"DemoModel","task":"t2av","evaluator":"causality_violation","evidence":{"onset_delays_seconds":[0.012,-0.003,0.008]}}
+{"sample_id":"range_001","model":"DemoModel","task":"t2av","evaluator":"range_attenuation","evidence":{"window_r2_values":[0.81,0.76,0.88]}}
+{"sample_id":"approach_001","model":"DemoModel","task":"t2av","evaluator":"approach_gain","evidence":{"native_score":0.73}}
+{"sample_id":"lateral_001","model":"DemoModel","task":"t2av","evaluator":"lateral_stability","evidence":{"native_score":0.91}}
+

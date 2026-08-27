@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "acoustitrace"
+version = "0.1.0"
+description = "End-to-end acoustic-physics evaluation for generated audio-video content"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+dependencies = []
+classifiers = [
+  "License :: OSI Approved :: Apache Software License",
+]
+authors = [
+  { name = "Shiyang Li" },
+  { name = "Yuewen Cao" },
+  { name = "Yihao Liu" },
+  { name = "Yuandong Pu" },
+  { name = "Baochang Zhang" },
+  { name = "Xiaofei Li" },
+  { name = "Changqing Zou" },
+]
+
+[project.urls]
+Homepage = "https://leader-sheng.github.io/AcoustiTrace/"
+Paper = "https://arxiv.org/abs/2608.02035"
+Repository = "https://github.com/Leader-sheng/AcoustiTrace"
+
+[project.scripts]
+acoustitrace = "acoustitrace.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+acoustitrace = ["paper_contract.json", "release_profile.json"]

@@ -1,0 +1,3 @@
+prompt_id,task,model,video_path,status,error,seed,generator_revision
+demo_t2av_001,t2av,DemoModel,outputs/demo_t2av_001.mp4,success,,42,local-smoke
+demo_i2av_001,i2av,DemoModel,,failed,provider timeout,42,local-smoke

@@ -1,0 +1,81 @@
+data:
+  input_manifest: data/receiver_manifest.csv
+
+output:
+  root: outputs/receiver_observer
+
+runtime:
+  vda_repo: third_party/Video-Depth-Anything
+  grounded_sam_repo: third_party/Grounded-Segment-Anything
+  bert_base_uncased_path: bert-base-uncased
+
+vda:
+  encoder: vitl
+  metric: true
+  require_cuda: true
+  fp32: false
+  max_workers: 1
+  skip_existing: true
+  output_subdir: depth
+
+gsam:
+  persistent_runtime: true
+  config: GroundingDINO/groundingdino/config/GroundingDINO_SwinT_OGC.py
+  grounded_checkpoint: groundingdino_swint_ogc.pth
+  sam_version: vit_b
+  sam_checkpoint: sam_vit_b_01ec64.pth
+  box_threshold: 0.3
+  text_threshold: 0.25
+  device: cuda
+  output_subdir: gsam
+  frame_sample_sec: 0.5
+  dynamic_keyframes: true
+  dynamic_keyframe_sample_sec: 0.5
+  dynamic_max_keyframes: 0
+  dynamic_track_association: true
+  dynamic_track_min_keyframes: 3
+  dynamic_track_max_gap_sec: 1.0
+  dynamic_track_max_center_jump_norm: 0.35
+  dynamic_track_max_log_area_jump: 2.2
+  dynamic_track_node_base_score: 0.05
+  dynamic_track_confidence_weight: 1.0
+  dynamic_track_edge_margin_norm: 0.02
+  dynamic_track_edge_penalty: 1.0
+  dynamic_track_center_jump_penalty: 0.25
+  dynamic_track_area_jump_penalty: 0.05
+
+audio:
+  sample_rate: 16000
+  frame_length: 1024
+  hop_length: 512
+  window_sec: 0.2
+  output_subdir: audio_features
+
+tracks:
+  sample_fps: 5
+  template_margin_px: 24
+  search_margin_px: 72
+  min_bbox_area_ratio: 0.001
+  dynamic_bbox_max_interp_gap_sec: 0.75
+  dynamic_bbox_allow_extrapolation: false
+  output_subdir: tracks
+
+metrics:
+  distance_decay_min_range: 0.15
+  approaching_min_slope: 0.002
+  lateral_max_distance_cv: 0.12
+  lateral_min_bbox_motion: 0.05
+  distance_r2_window_sec: 0.4
+  distance_r2_slide_sec: 0.05
+  distance_r2_search_min_n: 5.0
+  distance_r2_search_max_n: 50.0
+  distance_r2_search_density: 450
+  legacy_audio_sample_rate: 48000
+  legacy_audio_fps: 30
+  legacy_audio_frame_length: 2048
+  legacy_audio_smooth_sigma: 1.5
+
+cleanup:
+  keep_depth_npy: false
+  keep_masks: true
+  keep_visualizations: false

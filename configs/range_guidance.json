@@ -1,0 +1,19 @@
+{
+  "target_exponent_gamma": 1.0,
+  "audio_patch_size": 1,
+  "audio_latent_channels": 8,
+  "audio_latent_mel_bins": 16,
+  "decoded_mel_energy_mode": "exp_clamped_rms",
+  "guidance_scale": 5.0,
+  "maximum_update_norm_ratio": 0.01,
+  "start_fraction": 0.0,
+  "update_every_n_steps": 1,
+  "maximum_token_pairs": 4096,
+  "huber_beta": 0.05,
+  "envelope_epsilon": 1e-6,
+  "audio_rms_gate": 1e-5,
+  "denoising_steps": 8,
+  "distance_ratio_clipping": null,
+  "gain_ratio_cap": null,
+  "seed_base": 270626
+}

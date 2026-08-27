@@ -1,0 +1,84 @@
+input:
+  project_root: experiments/evaluator_backends
+  preferred_review_sets:
+    - outputs/source_mechanics/metrics
+  use_existing_matched_events_if_available: true
+
+output:
+  output_root: outputs/time_causality
+
+timing:
+  violation_threshold_sec: -0.001
+  early_tolerance_sec: 0.08
+  sync_tolerance_sec: 0.25
+  max_match_delay_sec: 0.70
+  max_sequence_gap_sec: 1.50
+
+event_clustering:
+  enabled: true
+  audio_cluster_gap_sec: 0.20
+  visual_cluster_gap_sec: 0.30
+  merge_overlapping_events: true
+  merge_adjacent_events: true
+  min_cluster_duration_sec: 0.02
+  max_cluster_duration_sec: 3.00
+  visual_representative_time: confidence_peak
+  audio_representative_time: onset
+
+event_filter:
+  min_visual_confidence: 0.20
+  min_audio_confidence: 0.20
+  min_event_duration_sec: 0.02
+  max_event_duration_sec: 5.0
+  ignore_silent_visual_events: false
+
+confidence_filter:
+  min_visual_confidence: 0.20
+  min_audio_confidence: 0.20
+
+matching_modes:
+  strict:
+    early_tolerance_sec: 0.05
+    sync_tolerance_sec: 0.15
+    max_match_delay_sec: 0.35
+    require_label_compatibility: true
+    allow_many_to_one: false
+    allow_one_to_many: false
+  normal:
+    early_tolerance_sec: 0.08
+    sync_tolerance_sec: 0.25
+    max_match_delay_sec: 0.70
+    require_label_compatibility: false
+    allow_many_to_one: false
+    allow_one_to_many: false
+  relaxed:
+    early_tolerance_sec: 0.12
+    sync_tolerance_sec: 0.35
+    max_match_delay_sec: 1.00
+    require_label_compatibility: false
+    allow_many_to_one: true
+    allow_one_to_many: true
+
+matching:
+  method: greedy_or_hungarian
+  cost_weights:
+    time_distance: 1.0
+    label_compatibility: 0.5
+    confidence: 0.2
+  allow_many_to_one: false
+  allow_one_to_many: false
+
+applicability:
+  min_visual_events_for_sequence: 1
+  min_audio_events_for_sequence: 1
+  min_matched_events_for_sequence: 1
+
+reporting:
+  primary_matching_mode: normal
+  also_report_modes: []
+  report_raw_detector_metrics: false
+  report_clustered_metrics: true
+  export_case_visualizations: false
+  max_good_cases: 0
+  max_bad_cases: 0
+  max_manual_review_cases: 0

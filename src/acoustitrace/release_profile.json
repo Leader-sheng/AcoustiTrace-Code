@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "name": "acoustitrace-public-605-t2av-plus-143-i2av-lat",
+  "description": "First public evaluation suite: 605 rebalanced T2AV prompts and 143 I2AV Log Attack Time prompts.",
+  "tasks": {
+    "t2av": {
+      "unique_prompts": 605,
+      "allowed_memberships": [
+        ["range_attenuation"],
+        ["approach_gain", "lateral_stability"],
+        ["motion_loudness"],
+        ["impact_decay"],
+        ["causality_violation"],
+        ["rt60_consistency"]
+      ],
+      "assignment_counts": {
+        "range_attenuation": 90,
+        "approach_gain": 90,
+        "lateral_stability": 90,
+        "motion_loudness": 90,
+        "impact_decay": 90,
+        "causality_violation": 79,
+        "rt60_consistency": 166,
+        "log_attack_time": 0
+      }
+    },
+    "i2av": {
+      "unique_prompts": 143,
+      "allowed_memberships": [["log_attack_time"]],
+      "assignment_counts": {
+        "range_attenuation": 0,
+        "approach_gain": 0,
+        "lateral_stability": 0,
+        "motion_loudness": 0,
+        "impact_decay": 0,
+        "causality_violation": 0,
+        "rt60_consistency": 0,
+        "log_attack_time": 143
+      }
+    }
+  }
+}

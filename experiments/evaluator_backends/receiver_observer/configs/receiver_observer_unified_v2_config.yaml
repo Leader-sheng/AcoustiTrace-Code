@@ -1,0 +1,65 @@
+data:
+  manifest: data/receiver_manifest.csv
+  audio_root: outputs/receiver_observer/audio_features
+  track_root: outputs/receiver_observer/tracks
+  split: generated
+
+output:
+  root: outputs/receiver_observer/unified
+
+metrics:
+  window_sec: 0.4
+  slide_sec: 0.05
+  distance_decay_min_range: 0.15
+  approaching_min_slope: 0.002
+  equal_distance_window_sec: 0.4
+  equal_distance_slide_sec: 0.05
+  equal_distance_depth_tolerance_ratio: 0.08
+  equal_distance_min_branch_range: 0.15
+  equal_distance_min_pairs: 3
+  equal_distance_spl_sigma_db: 3.0
+  equal_distance_rms_log_sigma: 0.35
+  constant_distance_max_cv: 0.12
+  lateral_max_distance_cv: 0.12
+  lateral_min_bbox_motion: 0.05
+  distance_r2_search_min_n: 5.0
+  distance_r2_search_max_n: 50.0
+  distance_r2_search_density: 450
+  pair_sigma: 0.35
+
+visual_applicability:
+  enabled: true
+  depth_field: source_depth_proxy_smooth
+  smoothing_window_sec: 0.35
+  min_valid_points: 6
+  min_valid_track_ratio: 0.50
+  min_track_duration_sec: 0.50
+  min_reliable_run_sec: 0.50
+  min_mean_valid_mask_ratio: 0.00
+  min_mean_depth_valid_ratio: 0.00
+  min_mean_source_visible_ratio: 0.00
+  per_frame_min_valid_mask_ratio: 0.00
+  per_frame_min_source_visible_ratio: 0.00
+  max_tracking_gap_sec: 0.35
+  max_bbox_center_jump: 0.35
+  max_bbox_area_log_jump: 1.40
+  max_depth_jump_abs: 0.75
+  max_depth_jump_mad_factor: 10.0
+  min_window_points: 3
+  neutral_depth_step: 0.01
+  min_directional_fraction: 0.70
+  min_active_direction_fraction: 0.25
+  max_counter_direction_fraction: 0.30
+  min_motion_trend_r2: 0.50
+  min_motion_slope: 0.01
+  min_motion_depth_change: 2.00
+  approaching_min_motion_depth_change: 0.15
+  main_direction_dominance_ratio: 1.50
+  lateral_min_motion_depth_change: 0.05
+  lateral_min_motion_trend_r2: 0.75
+  distance_min_receding_duration_sec: 1.50
+  approaching_min_duration_sec: 1.50
+  lateral_min_receding_duration_sec: 0.50
+  lateral_min_approaching_duration_sec: 0.50
+  lateral_min_bbox_center_motion: 0.03
+  lateral_min_bbox_path_length: 0.05

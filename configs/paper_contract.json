@@ -1,0 +1,127 @@
+{
+  "release": "AAAI-2027-paper-aligned-2026-08-01",
+  "score_scale": [0, 100],
+  "aggregation": {
+    "reported_statistic": "conditional_mean_over_valid_outputs",
+    "invalid_score_policy": "exclude_from_conditional_mean",
+    "validity_reported_separately": true,
+    "bootstrap_resamples": 10000,
+    "bootstrap_interval": "percentile_95",
+    "resampling_unit": "valid_generated_output_within_model_task_evaluator_cell",
+    "outputs_per_prompt_model": 1
+  },
+  "prompt_suite": {
+    "unique": {"t2av": 605, "i2av": 748},
+    "assignments": {
+      "range_attenuation": 84,
+      "approach_gain_lateral_shared_pool": 222,
+      "approach_gain": 222,
+      "lateral_stability": 222,
+      "motion_loudness": 110,
+      "impact_decay": 111,
+      "causality_violation": 138,
+      "rt60_consistency": 84,
+      "log_attack_time": 143
+    },
+    "range_receiver_overlap": 6,
+    "causality_reuses_motion_or_impact_prompts": true
+  },
+  "rgbd_dataset": {
+    "total": 82828,
+    "splits": {"train": 57977, "validation": 8285, "test": 16566},
+    "split_policy": "sample-level_stratified_by_rt60_bin"
+  },
+  "model_support": {
+    "LTX-2.3": {"t2av": true, "i2av": true},
+    "JavisDiT++": {"t2av": true, "i2av": false},
+    "NAVA": {"t2av": true, "i2av": true},
+    "Ovi": {"t2av": true, "i2av": true},
+    "UniVerse-1": {"t2av": false, "i2av": true},
+    "MOVA": {"t2av": true, "i2av": true},
+    "Veo 3.1": {"t2av": true, "i2av": true},
+    "Seedance 2.0": {"t2av": true, "i2av": true},
+    "Wan 2.7": {"t2av": true, "i2av": true}
+  },
+  "evaluators": {
+    "motion_loudness": {
+      "tasks": ["t2av", "i2av"],
+      "audio_visual_offset_max_seconds": 0.35,
+      "event_separation_min_seconds": 0.12,
+      "audio_window_seconds": [-0.05, 0.70],
+      "frame_difference_fps": 8,
+      "frame_difference_window_seconds": [-0.25, 0.10],
+      "decision_margin_db": 0.0
+    },
+    "log_attack_time": {
+      "tasks": ["i2av"],
+      "sample_rate_hz": 22050,
+      "rms_frame_samples": 1024,
+      "rms_hop_samples": 128,
+      "gaussian_sigma": 1.0,
+      "search_window_seconds": [-0.05, 0.30],
+      "baseline_seconds": 0.05,
+      "duration_floor_seconds": 0.0001,
+      "score_scale": 0.35
+    },
+    "impact_decay": {
+      "tasks": ["t2av", "i2av"],
+      "sample_rate_hz": 22050,
+      "event_window_seconds": [-0.05, 0.70],
+      "fit_window_after_peak_seconds": [0.02, 0.50],
+      "minimum_segment_samples": 64,
+      "minimum_envelope_points": 5,
+      "minimum_fit_points": 5,
+      "minimum_r2_gate": null
+    },
+    "rt60_consistency": {
+      "tasks": ["t2av", "i2av"],
+      "center_frequency_hz": 500,
+      "audio_sample_rate_hz": 24000,
+      "audio_rt60_seconds": [0.05, 5.0],
+      "visual_rt60_seconds": [0.08, 3.0],
+      "full_score_ratio": 1.5,
+      "zero_score_ratio": 3.0,
+      "decay_fit_min_r2": 0.65
+    },
+    "causality_violation": {
+      "tasks": ["t2av", "i2av"],
+      "violation_threshold_seconds": -0.001,
+      "audio_cluster_gap_seconds": 0.20,
+      "visual_cluster_gap_seconds": 0.30,
+      "minimum_detection_confidence": 0.20,
+      "matching_seconds": {"early": 0.08, "synchronous": 0.25, "delayed": 0.70}
+    },
+    "range_attenuation": {
+      "tasks": ["t2av", "i2av"],
+      "window_seconds": 0.40,
+      "stride_seconds": 0.05,
+      "depth_smoothing_seconds": 0.35,
+      "minimum_track_points": 6,
+      "minimum_finite_support": 0.50,
+      "minimum_reliable_run_seconds": 0.50,
+      "gap_split_seconds": 0.35,
+      "minimum_scoring_points": 4,
+      "minimum_window_points": 3,
+      "minimum_receding_seconds": 1.50,
+      "minimum_internal_depth_span": 2.00,
+      "distance_is_metric": false
+    },
+    "approach_gain": {
+      "tasks": ["t2av", "i2av"],
+      "window_seconds": 0.40,
+      "stride_seconds": 0.05,
+      "minimum_relative_depth_span": 0.15,
+      "maximum_depth_slope": -0.002,
+      "minimum_approach_seconds": 1.50
+    },
+    "lateral_stability": {
+      "tasks": ["t2av", "i2av"],
+      "window_seconds": 0.40,
+      "stride_seconds": 0.05,
+      "maximum_relative_depth_cv": 0.12,
+      "minimum_bbox_displacement": 0.03,
+      "minimum_bbox_path_length": 0.05
+    }
+  }
+}
+
